@@ -1,0 +1,30 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "Common data structures in JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltodorov/data-structures.git"
+  },
+  "author": "Lyubomir Todorov",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ltodorov/data-structures/issues"
+  },
+  "homepage": "https://github.com/ltodorov/data-structures#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.1",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "typescript": "^3.6.4"
+  }
+}
