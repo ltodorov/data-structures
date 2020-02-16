@@ -22,8 +22,8 @@ class LinkedList<T> {
         const newNode = new LinkedListNode<T>(value);
         if (this.head === null) {
             this.head = newNode;
-        } else if (this.tail !== null) {
-            this.tail.next = newNode;
+        } else {
+            (this.tail as LinkedListNode<T>).next = newNode;
             newNode.previous = this.tail;
         }
         this.tail = newNode;
@@ -47,6 +47,11 @@ class LinkedList<T> {
             }
             current = current.next;
         }
+    }
+
+    clear() {
+        this.head = null;
+        this.tail = null;
     }
 
     get size() {
