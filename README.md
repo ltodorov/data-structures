@@ -7,3 +7,5 @@ In terms of complexity, **Stacks** and **Queues** are the simplest and can be co
 ## References
 
 1. [Data Structures in JavaScript by Thon Ly](https://medium.com/siliconwat/data-structures-in-javascript-1b9aed0ea17c)
+1. [Collection of classic computer science paradigms, algorithms, and approaches written in JavaScript](https://github.com/humanwhocodes/computer-science-in-javascript)
+1. [JavaScript Algorithms and Data Structures](https://github.com/trekhleb/javascript-algorithms)
