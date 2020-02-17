@@ -21,7 +21,17 @@ describe("Linked List", () => {
         expect(list.size).toBe(2);
     });
 
+    it("should reverse the list", () => {
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        expect([...list.values()]).toEqual([1, 2, 3]);
+        list.reverse();
+        expect([...list.values()]).toEqual([3, 2, 1]);
+    });
+
     it("should clear the list", () => {
+        list.add(1);
         list.clear();
         expect(list.size).toBe(0);
         expect(list.head).toBe(null);

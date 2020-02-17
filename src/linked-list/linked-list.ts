@@ -23,7 +23,7 @@ class LinkedList<T> {
         if (this.head === null) {
             this.head = newNode;
         } else {
-            (this.tail as LinkedListNode<T>).next = newNode;
+            this.tail && (this.tail.next = newNode);
             newNode.previous = this.tail;
         }
         this.tail = newNode;
@@ -31,7 +31,7 @@ class LinkedList<T> {
 
     remove(value: T) {
         let current = this.head;
-        while(current !== null) {
+        while (current !== null) {
             if (value === current.value) {
                 if (current.next === null) {
                     this.tail = current.previous;
@@ -57,11 +57,29 @@ class LinkedList<T> {
     get size() {
         let count = 0;
         let current = this.head;
-        while(current !== null) {
+        while (current !== null) {
             count++;
             current = current.next;
         }
         return count;
+    }
+
+    reverse() {
+        let current = this.head;
+        let previous = null;
+        let next = null;
+
+        while (current !== null) {
+            previous = current.previous;
+            next = current.next;
+            current.next = previous;
+            current.previous = next;
+            previous = current;
+            current = next;
+        }
+
+        this.tail = this.head;
+        this.head = previous;
     }
 }
 
