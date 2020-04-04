@@ -1,15 +1,40 @@
 import LinkedListNode from "./linked-list-node";
 import { Nullable } from "../types";
 
+/**
+ * A Doubly-Linked List implementation in TypeScript.
+ * Stores data elements in sequential order and
+ * holds pointers to other elements.
+ * @class LinkedList
+ * @template T
+ */
 class LinkedList<T> {
+
+    /**
+     * Head of the Linked List.
+     * @property head
+     * @type {?LinkedListNode<T>}
+     */
     head: Nullable<LinkedListNode<T>>;
+
+    /**
+     * Tail of the Linked List.
+     * @property tail
+     * @type {?LinkedListNode<T>}
+     */
     tail: Nullable<LinkedListNode<T>>;
 
+    /**
+     * Creates a new instance of LinkedList.
+     */
     constructor() {
         this.head = null;
         this.tail = null;
     }
 
+    /**
+     * Create an iterator that returns each node in the list.
+     */
     *values() {
         let current = this.head;
         while (current !== null) {
@@ -18,6 +43,10 @@ class LinkedList<T> {
         }
     }
 
+    /**
+     * Appends data to the end of the list.
+     * @param value {T}
+     */
     add(value: T) {
         const newNode = new LinkedListNode<T>(value);
         if (this.head === null) {
@@ -29,6 +58,10 @@ class LinkedList<T> {
         this.tail = newNode;
     }
 
+    /**
+     * Removes a node with the same value from the list.
+     * @param value {T}
+     */
     remove(value: T) {
         let current = this.head;
         while (current !== null) {
@@ -49,12 +82,19 @@ class LinkedList<T> {
         }
     }
 
+    /**
+     * Removes all nodes from the list.
+     */
     clear() {
         this.head = null;
         this.tail = null;
     }
 
-    get size() {
+    /**
+     * Returns the number of nodes in the list.
+     * @returns {number}
+     */
+    get size(): number {
         let count = 0;
         let current = this.head;
         while (current !== null) {
@@ -64,6 +104,9 @@ class LinkedList<T> {
         return count;
     }
 
+    /**
+     * Reorganize the list in reverse order.
+     */
     reverse() {
         let current = this.head;
         let previous = null;
