@@ -30,7 +30,7 @@ class LinkedListNode<T> {
 
     /**
      * Creates a new instance of LinkedListNode.
-     * @param value {T}
+     * @param {T} value
      */
     constructor(value: T) {
         this.value = value;
