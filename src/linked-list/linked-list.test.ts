@@ -74,4 +74,25 @@ describe("Linked List", () => {
             expect(list.tail).toBe(null);
         });
     });
+
+    describe("search", () => {
+        beforeEach(() => {
+            list.add(1);
+            list.add(2);
+            list.add(3);
+        });
+
+        it("should return the found item", () => {
+            expect(list.search(2)).toBe(2);
+        });
+
+        it("should return null if item is not found", () => {
+            expect(list.search(4)).toBe(null);
+        });
+
+        it("should return null if no items in the linked list", () => {
+            list.clear();
+            expect(list.search(1)).toBe(null);
+        });
+    });
 });

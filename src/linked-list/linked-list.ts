@@ -45,7 +45,7 @@ class LinkedList<T> {
 
     /**
      * Appends data to the end of the list.
-     * @param value {T}
+     * @param {T} value
      */
     add(value: T) {
         const newNode = new LinkedListNode<T>(value);
@@ -60,7 +60,7 @@ class LinkedList<T> {
 
     /**
      * Removes a node with the same value from the list.
-     * @param value {T}
+     * @param {T} value
      */
     remove(value: T) {
         let current = this.head;
@@ -123,6 +123,24 @@ class LinkedList<T> {
 
         this.tail = this.head;
         this.head = previous;
+    }
+
+    /**
+     * Search the list for a value
+     * @param {T} value
+     * @returns {?T}
+     */
+    search(value: T): Nullable<T> {
+        let current: Nullable<LinkedListNode<T>> = this.head;
+
+        while (current !== null) {
+            if (current.value === value) {
+                return value;
+            }
+            current = current.next;
+        }
+
+        return null;
     }
 }
 
