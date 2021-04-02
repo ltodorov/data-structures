@@ -2,7 +2,7 @@
   "name": "data-structures",
   "version": "1.0.0",
   "description": "Common data structures in JavaScript",
-  "main": "index.js",
+  "private": "true",
   "scripts": {
     "start": "tsc",
     "test": "jest"
