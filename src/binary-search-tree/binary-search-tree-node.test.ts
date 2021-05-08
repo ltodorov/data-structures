@@ -6,7 +6,8 @@ describe("Binary Search Tree Node", () => {
         expect(node).toEqual({
             value: "A",
             left: null,
-            right: null
+            right: null,
+            parent: null
         });
     });
 });

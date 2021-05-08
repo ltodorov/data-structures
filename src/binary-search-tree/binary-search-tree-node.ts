@@ -15,6 +15,13 @@ class BinarySearchTreeNode<T> {
     value: T;
 
     /**
+     * A pointer to the parent node in the Binary Search Tree.
+     * @property parent
+     * @type {?BinarySearchTreeNode<T>}
+     */
+    parent: Nullable<BinarySearchTreeNode<T>>;
+
+    /**
      * A pointer to the left node in the Binary Search Tree.
      * @property left
      * @type {?BinarySearchTreeNode<T>}
@@ -34,6 +41,7 @@ class BinarySearchTreeNode<T> {
      */
     constructor(value: T) {
         this.value = value;
+        this.parent = null;
         this.right = null;
         this.left = null;
     }

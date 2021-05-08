@@ -44,20 +44,17 @@ class BinarySearchTree<T> {
      * @param {T} value
      */
     delete(value: T) {
-        let current = this.root;
+        let found = this.find(value);
 
-        if (!current) {
-            return;
-        }
-
-        if (current.value === value) {
-            this.root = null;
-        } else {
-            const found = this.find(value);
-            if (found && found.parent) {
-                found.parent.left = found.node.left;
+        if (found?.parent) {
+            if (found.parent.left === found) {
+                found.parent.left = null;
+            } else if (found.parent.right === found) {
+                found.parent.right = null;
             }
         }
+
+        found = null;
     }
 
     /**
@@ -69,22 +66,18 @@ class BinarySearchTree<T> {
 
     find(value: T) {
         let current = this.root;
-        let parent: Nullable<BinarySearchTreeNode<T>> = null;
 
         while (current) {
             if (value < current.value) {
-                parent = current;
                 current = current.left;
             } else if (value > current.value) {
-                parent = current;
                 current = current.right;
             } else {
-                return {
-                    node: current,
-                    parent
-                };
+                return current;
             }
         }
+
+        return null;
     }
 }
 
@@ -98,15 +91,18 @@ function recursiveAdd<T>(currentNode: BinarySearchTreeNode<T>, newNode: BinarySe
         if (!currentNode.left) {
             currentNode.left = newNode;
         } else {
-            recursiveAdd(currentNode.left, newNode);
+            currentNode = currentNode.left;
+            recursiveAdd(currentNode, newNode);
         }
     } else if (newNode.value > currentNode.value) {
         if (!currentNode.right) {
             currentNode.right = newNode;
         } else {
-            recursiveAdd(currentNode.right, newNode);
+            currentNode = currentNode.right;
+            recursiveAdd(currentNode, newNode);
         }
     }
+    newNode.parent = currentNode;
 }
 
 /**
